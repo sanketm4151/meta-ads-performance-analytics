@@ -1,7 +1,6 @@
-# meta-ads-performance-analytics
 # 📊 Pinnacle Meta Ads Campaign Dataset – Marketing Analytics & Performance Optimization eda
 tools : Python,numpy,pandas,matplotlib,seaborn,excel,pivot
-📌 Project Overview
+#📌 Project Overview
 This project focuses on cleaning, transforming, and analyzing a Meta Ads campaign dataset containing:
 
 10000+ rows (Ads)
@@ -17,7 +16,7 @@ High null-value fields
 Mixed data types
 The primary objective was to prepare the dataset in Excel and perform advanced Exploratory Data Analysis (EDA) in Python to generate actionable marketing insights.
 
-🧹 Phase 1: Excel Data Cleaning & Structuring
+# 🧹 Phase 1: Excel Data Cleaning & Structuring
 🔹 JSON Column Handling
 Extracted targeting information (age range, interests, behaviors, geo-location).
 Removed raw nested JSON columns after flattening key fields.
@@ -39,7 +38,7 @@ Engagement Rate (24hr, 7-day, overall)
 Conversion Rate (24hr, 7-day, overall)
 Monthly performance column
 Date range & time-based derived columns
-📊 Excel Pivot Analysis
+# 📊 Excel Pivot Analysis
 Performed structured pivot summaries for:
 
 Platform-Level Analysis
@@ -56,7 +55,7 @@ Daily Performance Summary
 Day-wise payments
 CPC trends
 Conversion trends
-🐍 Phase 2: Python-Based EDA
+# 🐍 Phase 2: Python-Based EDA
 Libraries Used:
 
 Pandas
@@ -72,7 +71,7 @@ Platform comparison
 Campaign efficiency benchmarking
 Correlation analysis
 Outlier detection
-📈 Final Insights & Optimization Decisions
+# 📈 Final Insights & Optimization Decisions
 🔹 Ad-Level Performance Decision
 Out of 237 Ads:
 
@@ -93,7 +92,7 @@ Instagram: 7
 Threads: 11
 📌 Threads emerged as the strongest performing platform.
 
-📅 Best Day to Run Ads
+# 📅 Best Day to Run Ads
 Tuesday is the highest performing day:
 
 308 Payments
@@ -101,7 +100,7 @@ Lowest CPC: ₹3.5
 Above-average conversion rate
 📌 Recommendation: Increase budget allocation on Tuesdays.
 
-🎯 Campaign-Level Insights
+# 🎯 Campaign-Level Insights
 🥇 Best Performing Campaign
 "VM || Delhi NCR || Traffic"
 Lowest CPC: ₹1.16
@@ -132,7 +131,7 @@ Both campaigns generated:
 Consumed budget
 📌 Recommended to discontinue.
 
-👥 Ad Set-Level Insights
+# 👥 Ad Set-Level Insights
 🥇 Top Performing Ad Set
 "Women - Clubbed Audience"
 567 Payments
@@ -187,7 +186,7 @@ JSON-based targeting interpretation
 KPI modeling & performance benchmarking
 Campaign optimization strategy development
 Data-driven decision making for ad scaling or discontinuation
-📐 KPI & Metric Formulas Used in Analysis
+# 📐 KPI & Metric Formulas Used in Analysis
 Below are the key formulas used to calculate performance metrics in Excel and Python.
 
 🔹 Core Performance Metrics
