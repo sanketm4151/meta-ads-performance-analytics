@@ -1,267 +1,139 @@
-# 📊 Pinnacle Meta Ads Campaign Dataset – Marketing Analytics & Performance Optimization eda
-tools : Python,numpy,pandas,matplotlib,seaborn,excel,pivot
-#📌 Project Overview
-This project focuses on cleaning, transforming, and analyzing a Meta Ads campaign dataset containing:
+# 📊 Pinnacle Meta Ads Campaign Analytics & Performance Optimization
 
-10000+ rows (Ads)
-~50 structured columns (after preprocessing)
-Embedded JSON targeting specifications
-Campaign, Ad Set, and Ad-level performance metrics
-The dataset required preprocessing due to:
+## 📌 Project Overview
 
-Semi-structured JSON columns
-Redundant system-generated metrics
-Hourly and weekday breakdown columns
-High null-value fields
-Mixed data types
-The primary objective was to prepare the dataset in Excel and perform advanced Exploratory Data Analysis (EDA) in Python to generate actionable marketing insights.
+This project focuses on cleaning, transforming, and analyzing Meta Ads campaign data using Microsoft Excel and Python to identify performance trends and generate actionable marketing insights.
 
-# 🧹 Phase 1: Excel Data Cleaning & Structuring
-🔹 JSON Column Handling
-Extracted targeting information (age range, interests, behaviors, geo-location).
-Removed raw nested JSON columns after flattening key fields.
-Reduced structural complexity for analytical clarity.
-🔹 Data Standardization
-Converted dates, currency, and numeric fields to appropriate formats.
-Ensured Ad ID uniqueness.
-Cleaned text-based NaN values to avoid Python parsing issues.
-🔹 Column Reduction & Optimization
-Removed columns with 80–90% null values.
-Dropped hourly breakdown columns (recalculable in Python).
-Deleted weekday-specific columns (can be derived from date).
-Removed derivable metrics such as Ad Rank, Top 25% CPC etc.
-Focused dataset on core KPIs.
-🔹 Feature Engineering
-Created new calculated metrics:
+The dataset contains **10,000+ records** and approximately **50 structured columns after preprocessing**, including campaign, ad set, advertisement, targeting, and performance metrics.
 
-Engagement Rate (24hr, 7-day, overall)
-Conversion Rate (24hr, 7-day, overall)
-Monthly performance column
-Date range & time-based derived columns
-# 📊 Excel Pivot Analysis
-Performed structured pivot summaries for:
+### 🎯 Project Objectives
 
-Platform-Level Analysis
-Total Spend
-Total Conversions
-Average CPC
-Conversion Rate
-Campaign-Level Performance
-Payments
-Cost per Payment (CPLPV)
-ROI %
-CTR %
-Daily Performance Summary
-Day-wise payments
-CPC trends
-Conversion trends
-# 🐍 Phase 2: Python-Based EDA
-Libraries Used:
+- Clean and preprocess advertising data.
+- Extract targeting information from JSON columns.
+- Perform Exploratory Data Analysis (EDA).
+- Analyze campaign, platform, ad set, and ad performance.
+- Calculate and validate marketing KPIs.
+- Identify high-performing and underperforming advertisements.
+- Recommend data-driven campaign optimization strategies.
 
-Pandas
-NumPy
-Matplotlib
-Seaborn
-Analysis Performed:
+---
 
-KPI recalculation validation
-Null and anomaly checks
-Distribution analysis
-Platform comparison
-Campaign efficiency benchmarking
-Correlation analysis
-Outlier detection
-# 📈 Final Insights & Optimization Decisions
-🔹 Ad-Level Performance Decision
-Out of 237 Ads:
+## 🛠️ Tools & Technologies
 
-✅ 24 Ads meet performance benchmarks
-(High CTR + Low CPC + Strong Conversion Rate)
+- **Python:** Data analysis and preprocessing
+- **NumPy:** Numerical calculations
+- **Pandas:** Data cleaning and manipulation
+- **Matplotlib:** Data visualization
+- **Seaborn:** Statistical visualization
+- **Microsoft Excel:** Data cleaning and Pivot Table analysis
+- **Git & GitHub:** Version control and project documentation
 
-⏸ 183 Ads currently paused
-(Below target benchmark performance)
+---
 
-❌ 30 Ads recommended for discontinuation
-(Low CTR, High CPC, Poor Conversion)
+## 📂 Dataset Overview
 
-Platform Performance (Winning Platform)
-Ads Recommended to Continue:
+The dataset contains advertising performance information across multiple dimensions.
 
-Facebook: 6
-Instagram: 7
-Threads: 11
-📌 Threads emerged as the strongest performing platform.
+| Category | Description |
+|---|---|
+| Dataset Size | 10,000+ records before analytical filtering |
+| Analytical Columns | Approximately 50 after preprocessing |
+| Campaign Data | Campaign names and performance metrics |
+| Ad Set Data | Audience segments and targeting information |
+| Ad Data | Ad IDs, creative names, and performance metrics |
+| Performance Metrics | Impressions, clicks, spend, and CPC |
+| Conversion Metrics | Payments, conversions, and landing page views |
+| Targeting Data | Age ranges, interests, behaviors, and locations |
+| Time-Based Data | Dates, weekdays, and monthly performance |
 
-# 📅 Best Day to Run Ads
-Tuesday is the highest performing day:
+---
 
-308 Payments
-Lowest CPC: ₹3.5
-Above-average conversion rate
-📌 Recommendation: Increase budget allocation on Tuesdays.
+# 🧹 Phase 1: Excel Data Cleaning & Preparation
 
-# 🎯 Campaign-Level Insights
-🥇 Best Performing Campaign
-"VM || Delhi NCR || Traffic"
-Lowest CPC: ₹1.16
-Highest Payments: 568
-Strong Conversion Rate: 0.77
-📌 Recommended to continue & scale.
+## 1. JSON Column Handling
 
-⚠ Needs Optimization
-"Web App | Conversion"
-Highest Spend: ₹181K+
-High CPC: ₹13.26
-Low Conversion Rate: 0.37
-📌 Requires targeting and cost optimization.
+- Extracted targeting information from nested JSON columns.
+- Identified age ranges, interests, behaviors, and geographical targeting.
+- Flattened relevant JSON attributes into structured columns.
+- Removed unnecessary raw JSON columns after extracting useful information.
 
-📣 Awareness Campaign Analysis
-"VM Brand Awareness"
-8.79% of total spend
-Very cost-efficient CTR: ₹0.08
-Poor in direct conversions
-📌 Effective for reach, not for payment conversion objective.
+## 2. Data Standardization
 
-❌ Least Performing Campaigns (Discontinue)
-"ToF Engagement"
-"Straight Outta"
-Both campaigns generated:
+- Converted date fields into appropriate date formats.
+- Standardized currency and numerical fields.
+- Checked Ad ID uniqueness.
+- Cleaned text-based missing values, including `"NaN"` strings.
+- Corrected inconsistent data types and formatting issues.
 
-0 Payments
-Consumed budget
-📌 Recommended to discontinue.
+## 3. Column Reduction & Optimization
 
-# 👥 Ad Set-Level Insights
-🥇 Top Performing Ad Set
-"Women - Clubbed Audience"
-567 Payments
-Lowest CPLPV: ₹2.30
-Strong Conversion Rate: 0.81
-📌 High-performing segment – recommended to scale.
+- Removed columns containing approximately 80–90% missing values when they were not analytically useful.
+- Removed unnecessary hourly breakdown columns.
+- Removed weekday-specific columns where the information could be derived from dates.
+- Eliminated redundant or derivable metrics.
+- Retained essential columns for performance analysis.
 
-"RMK - Waitlist"
-Conversion Rate: 1.05
-CPLPV: ₹18.50
-Slightly higher CPC but strong efficiency
-📌 Maintain & optimize budget.
+## 4. Feature Engineering
 
-❌ Underperforming Ad Sets (Discontinue)
-Ad sets with 0 payments but budget consumption:
+Created additional analytical features:
 
-Dating Apps
-Entrepreneurship Insta
-Travel Insta
-Interest-Based Dinner
-📌 Recommended to stop to prevent further budget leakage.
+- Engagement Rate
+- Conversion Rate
+- Monthly Performance
+- Date-Based Features
+- Weekday Classification
+- Campaign Efficiency Indicators
+- Performance Benchmark Ratios
 
-📢 Top Performing Ads
-Top 5 Ads (High Spend % + High Payments):
+---
 
-Monkey UGC
-Ad – 1 (5 Strangers)
-Saturday Night
-Ranveer
-Instagram Post – Latest StepOut Dinner
-🏆 Top 3 Ads (Most Efficient)
-Monkey UGC
-Saturday Night
-Ranveer
-Metrics:
+# 📊 Phase 2: Excel Pivot Table Analysis
 
-High Payments
-CPLPV below ₹1.5
-Conversion Rate ~0.70
-📌 Recommended for scaling.
+## 1. Platform-Level Analysis
 
-🛠 Tech Stack
-Microsoft Excel (Cleaning + Pivot Analysis)
-Python (Pandas, NumPy)
-Matplotlib & Seaborn
-Git & GitHub
-🚀 Project Value
-This project demonstrates:
+Analyzed advertising performance across Facebook, Instagram, Threads, and other available platforms.
 
-Handling of semi-structured marketing export data
-JSON-based targeting interpretation
-KPI modeling & performance benchmarking
-Campaign optimization strategy development
-Data-driven decision making for ad scaling or discontinuation
-# 📐 KPI & Metric Formulas Used in Analysis
-Below are the key formulas used to calculate performance metrics in Excel and Python.
+**Metrics:**
+- Total Spend
+- Total Payments
+- Average CPC
+- Click-Through Rate (CTR)
+- Conversion Rate
+- Cost Per Landing Page View (CPLPV)
 
-🔹 Core Performance Metrics
-1️⃣ Click-Through Rate (CTR)
-CTR (%) = (Clicks / Impressions) × 100
+## 2. Campaign-Level Analysis
 
-2️⃣ Cost Per Click (CPC)
-CPC = Total Spend / Total Clicks
+Compared campaigns using:
 
-3️⃣ Conversion Rate (CR)
-Conversion Rate = Conversions / Clicks
+- Total Advertising Spend
+- Total Payments
+- Cost Per Landing Page View
+- Click-Through Rate
+- Conversion Rate
+- ROI, where revenue data was available
 
-OR (if calculated from impressions)
+## 3. Daily Performance Analysis
 
-Conversion Rate = Conversions / Impressions
+Evaluated:
 
-4️⃣ Cost Per Acquisition (CPA)
-CPA = Total Spend / Total Conversions
+- Daily Advertising Spend
+- Day-Wise Payments
+- Daily CPC Trends
+- Daily Conversion Performance
+- Weekday-Level Results
 
-5️⃣ Cost Per Landing Page View (CPLPV)
-CPLPV = Total Spend / Landing Page Views
+## 4. Monthly Performance Analysis
 
-6️⃣ Engagement Rate
-Engagement Rate = Total Engagements / Impressions
+Analyzed monthly advertising expenditure and conversion trends to identify changes in campaign performance over time.
 
-7️⃣ Return on Investment (ROI)
-ROI (%) = ((Revenue – Spend) / Spend) × 100
+---
 
-🔹 Time-Based Metrics
-8️⃣ Daily Performance
-Daily Impressions = SUM(Impressions grouped by Date)
+# 🐍 Phase 3: Python-Based Exploratory Data Analysis (EDA)
 
-Daily Conversions = SUM(Conversions grouped by Date)
+## Libraries Used
 
-Daily CPC = Daily Spend / Daily Clicks
-
-9️⃣ Monthly Performance
-Monthly Spend = SUM(Spend grouped by Month)
-
-Monthly Conversion Rate = Monthly Conversions / Monthly Clicks
-
-🔹 Benchmark Comparison Metrics
-10️⃣ Performance vs Group Average
-Metric Ratio = Ad Metric / Group Average Metric
-
-If:
-
-< 0.85 → Underperforming
-1.15 → Overperforming
-
-11️⃣ Performance vs Top 25 Percentile
-Metric Ratio = Ad Metric / Top 25% Benchmark
-
-Used to identify high-performing ads relative to best performers.
-
-🔹 Decision Threshold Logic
-Continue Criteria:
-CTR above average
-CPC below average
-Conversion Rate above benchmark
-Pause Criteria:
-CTR near average
-Moderate CPC
-Inconsistent conversions
-Discontinue Criteria:
-Conversion Rate < 0.01
-High CPA
-Zero payments despite spend
-🔹 Example Excel Formula Implementations
-CTR: = (Clicks / Impressions) * 100
-
-CPC: = Spend / Clicks
-
-Conversion Rate: = Conversions / Clicks
-
-CPA: = Spend / Conversions
-
-ROI: = ((Revenue - Spend) / Spend) * 100
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
